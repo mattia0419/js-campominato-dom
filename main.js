@@ -54,18 +54,22 @@ function generaGriglia(size){
 
         cell.addEventListener("click", function(){
             if(bombe.includes(i)){
-                this.classList.add("red");
-                grid.innerHTML = "";
                 
+                grid.innerHTML = "";
+                this.classList.add("red");
                 alert("HAI PERSO : IL TUO PUNTEGGIO E' " + score);
                 score = 0;
+                
             }
             else
             score++; 
             this.classList.add("green");
             
             console.log(score);
-
+            if(score == size * size - bombe.length){
+                alert("HAI VINTO")
+                grid.innerHTML = "";
+            }
             
         })
         grid.append(cell);
